@@ -17,6 +17,12 @@ public class CategoryController {
 	@Resource
 	ReviewRepository reviewRepo;
 	
+	@RequestMapping("/categories")
+	public String findAllCategories(Model model) {
+		model.addAttribute("categories", categoryRepo.findAll());
+		return("categories");
+	}
+	
 	@RequestMapping("/category")
 	public String findOneCategory(@RequestParam(value="id") long id, Model model) throws CategoryNotFoundException {
 		Optional<Category> category = categoryRepo.findById(id);
@@ -28,11 +34,6 @@ public class CategoryController {
 		throw new CategoryNotFoundException();
 	}
 
-	@RequestMapping("/categories")
-	public String findAllCategories(Model model) {
-		model.addAttribute("categories", categoryRepo.findAll());
-		return("categories");
-	}
 
 	@RequestMapping("/review")
 	public String findOneReview(@RequestParam(value="id") long id, Model model) throws ReviewNotFoundException {

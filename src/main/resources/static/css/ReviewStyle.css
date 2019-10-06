@@ -1,7 +1,32 @@
+* {
+	box-sizing: border-box;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 20px/1;
+	margin: 0;
+    padding: 0;
+    --lightblue: #5BC0EB;
+    --blue: #2364AA;
+    --teal: #73BFB8;
+    --gold: #FEC601;
+    --orange: #EA7317;
+}
+
 body {
-    padding: 30px;
+    width: 50rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    margin: 0 auto;
+}
+
+h1 {
+    padding: 1rem 1rem;
+    font-size: 40px;
+    color: lightblue;
+    background-color: blue;
+}
+
+p {
+    padding: 1rem 0rem;
 }
 
 a:link {

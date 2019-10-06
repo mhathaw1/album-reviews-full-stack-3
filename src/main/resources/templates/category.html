@@ -1,15 +1,33 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title th:text="${reviewModel.name}">A Category</title>
+	<title>A Category</title>
 	<link rel="stylesheet" type="text/css" media="all" href="./css/ReviewStyle.css" th:href="@{./css/ReviewStyle.css}">
 </head>
 <body>
-    <header>
-        
-    </header>
+    <nav>
+        <h1 th:each="category: ${categories}" th:text="|${category.genre} Reviews|"></h1>
+        <ul>
+            <li><a href="/reviews">View All Reviews</a></li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            Select an album to read its review:
+        </header>
+        <div th:each="review: ${categories.reviews}">
+            <h2>
+                <a th:href="@{review(id=${review.id})}" th:text="${review.name}"></a>
+            </h2>
+        </div>
+
+        <div>
+            <a href="/categories">Back to all categories</a>
+        </div>
+    </main>
     <footer>
-            <small>Copyright Michael Hathaway 2019</small>
+            <!---link back to categories-->
+            <small>&copy; Michael Hathaway 2019</small>
     </footer>
 </body>
 </html>

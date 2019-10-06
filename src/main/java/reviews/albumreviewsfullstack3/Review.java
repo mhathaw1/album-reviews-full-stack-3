@@ -1,9 +1,12 @@
 package reviews.albumreviewsfullstack3;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Review {
@@ -14,6 +17,14 @@ public class Review {
 	private String name;
 
 	private String imageUrl;
+	
+	@ManyToMany(mappedBy = "reviews")
+	private Collection <Category> categories;
+	
+	
+	public Collection <Category> getCategories() {
+		return categories;
+	}
 
 	@Lob
 	private String description;
@@ -33,6 +44,8 @@ public class Review {
 	}
 	public Review() {
 	}
+	
+	
 	
 	public Review(String name, String description, String imageUrl) {
 		this.name = name;

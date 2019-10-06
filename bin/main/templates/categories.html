@@ -1,15 +1,28 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title th:text="${reviewModel.name}">A Review</title>
+	<title>Categories!</title>
 	<link rel="stylesheet" type="text/css" media="all" href="./css/ReviewStyle.css" th:href="@{./css/ReviewStyle.css}">
 </head>
 <body>
-    <header>
-        
-    </header>
+    <nav>
+        <h1>Oustanding Albums of the 80s and 90s</h1>
+        <ul>
+            <li><a href="/reviews">View All Reviews</a></li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            Decades:
+        </header>
+        <div th:each="category: ${categories}">
+            <p>
+                <a th:href="@{/category(id=${category.id})}" th:text="${category.genre}"></a>
+            </p>
+        </div>
+    </main>
     <footer>
-            <small>Copyright Michael Hathaway 2019</small>
+            <small>&copy; Michael Hathaway 2019</small>
     </footer>
 </body>
 </html>
