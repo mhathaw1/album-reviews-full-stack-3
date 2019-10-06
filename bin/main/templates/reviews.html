@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:each="review: ${reviews}" th:text="${review.title}"></title>
+	<link rel="stylesheet" type="text/css" media="all" href="/css/ReviewStyle.css" th:href="@{/css/ReviewStyle.css}">
+</head>
+<body>
+    <nav>
+        <h1 class="current" th:each="review: ${reviews}" th:text="${review.title}>"></h1>
+        <ul class="navbuttons">
+            <li class="navlist"><a href="/categories">All Genres</a></li>
+        </ul>
+    </nav>
+    
+    
+    <main>
+        <header>
+            
+        </header>
+    </main>
+    
+    <footer>
+        <p><a href="/category">back to a specific category?</a></p>
+        <p><a href="/categories">back to all categories?</a></p>
+        <small>Copyright Michael Hathaway 2019</small>
+    </footer>
+    
+</body>
+</html>
